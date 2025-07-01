@@ -1,0 +1,10 @@
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE TABLE todos (
+    id SERIAL PRIMARY KEY,
+    uid UUID NOT NULL UNIQUE DEFAULT gen_random_uuid(),
+    task TEXT NOT NULL,
+    status BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    completed_at TIMESTAMPTZ
+);
+
