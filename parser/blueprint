@@ -1,0 +1,22 @@
+config.toml
+├── [app]                       # App‑level settings
+│     └─ table_name             # (string) the name of your todos table
+├── [database]                  # Database selection
+│     └─ type                   # (string) "postgres" | "sqlite" | "mysql"
+│
+├── [database.postgres]         # Postgres‑specific settings
+│     ├─ host                   # default "localhost"
+│     ├─ port                   # default 5432
+│     ├─ user                   # default "postgres"
+│     ├─ password               # default ""
+│     ├─ dbname                 # default "postgres"
+│     └─ sslmode                # default "disable"
+│
+├── [database.sqlite]           # SQLite‑specific settings
+│     ├─ path                   # default "."  (directory)
+│     └─ filename               # default "todos.db"
+│
+└── [logging]                   # (optional) logging settings
+      ├─ level                  # "debug" | "info" | "warn" | "error"
+      └─ file                   # (string, optional) path to logfile
+

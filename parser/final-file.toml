@@ -1,0 +1,54 @@
+# Expected to look something like this
+
+# ================================
+#  Todo CLI App Configuration
+# ================================
+
+[app]
+# Name of the table to store todos in (for SQL backends)
+table_name = "todos"
+
+[database]
+# Choose your backend: "postgres", "sqlite", "mysql"
+type = "postgres"
+
+# ================================
+#  Postgres Configuration
+# ================================
+[database.postgres]
+host     = "db.example.com"
+port     = 5432
+user     = "myuser"
+password = "s3cr3t"
+dbname   = "todoapp"
+sslmode  = "require"
+
+# ================================
+#  SQLite Configuration
+# ================================
+[database.sqlite]
+# Directory where the file will live
+path     = "/var/data"
+# Name of the sqlite file
+filename = "todos.sqlite3"
+
+# ================================
+#  (Future) MySQL Configuration
+# ================================
+[database.mysql]
+host     = "localhost"
+port     = 3306
+user     = "root"
+password = "rootpass"
+dbname   = "todoapp"
+charset  = "utf8mb4"
+
+# ================================
+#  Logging (Optional)
+# ================================
+[logging]
+# Options: "debug", "info", "warn", "error"
+level = "info"
+# If not provided, logs go to stdout
+file  = "/var/log/todo-cli.log"
+
