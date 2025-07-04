@@ -1,0 +1,15 @@
+# This is a comment
+name = "John Doe"
+age = 30
+pi = 3.14159
+# enabled = true
+numbers = [1, 2, 3, 4, 5]
+
+[database]
+host = "localhost"
+port = 5432
+
+[database.sqlite]
+name = "test.db"
+version = 1.0
+
