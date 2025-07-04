@@ -28,7 +28,7 @@ void Lexer::skipWhitespace() {
         if (isspace(c)) {
             advance();
         } else if (c == '#') {
-            // comment
+            // `#` will be considered as comments
             while (peek() != '\n' && peek() != '\0') advance();
         } else {
             break;
@@ -42,7 +42,7 @@ Token Lexer::lexString() {
     advance();
     while (peek() != '"' && peek() != '\0') {
         char c = advance();
-        // Handle basic escape sequences
+        // basic escape sequences
         if (c == '\\' && peek() != '\0') {
             char escaped = advance();
             switch (escaped) {
@@ -65,7 +65,7 @@ Token Lexer::lexNumberOrBoolean() {
     std::string lit;
     bool isFloat = false;
     
-    // Handle negative numbers
+    // negative numbers
     if (peek() == '-') {
         lit += advance();
     }
@@ -143,7 +143,7 @@ std::shared_ptr<Table> Parser::parse() {
             std::string tablePath = parseKey();
             consume(TokenType::RightBracket, "Expected ] after table name");
             
-            // Handle nested tables (e.g., database.sqlite)
+            // Handle nested tables ([something.example])
             currentTable = createNestedTable(rootTable, tablePath);
         } else {
             // key-value pair
@@ -194,7 +194,7 @@ std::string Parser::parseKey() {
     }
     key = t.lexeme;
     
-    // Handle dotted keys like database.sqlite
+    // Handle dotted keys like [something.example]
     while (peek().type == TokenType::Dot) {
         advance(); // consume '.'
         Token next = advance();

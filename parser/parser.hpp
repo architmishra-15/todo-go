@@ -9,7 +9,8 @@
 
 namespace toml {
 
-// Supported token types in our minimal parser
+// Supported token types for now
+// Todo: Add more data types to support more customizations
 enum class TokenType {
     Identifier,   // key names
     Equal,        // '='
@@ -21,7 +22,7 @@ enum class TokenType {
     LeftBracket,  // '['
     RightBracket, // ']'
     Dot,          // '.'
-    EndOfFile,
+    EndOfFile,    // EOF
     Error
 };
 
